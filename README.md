@@ -67,3 +67,9 @@ Stuck? Check out GitHub's docs or reach out to [Ahmed](https://github.com/jAmikA
 - [GitHub Course (طويل سيكا بس نينجا)](https://youtu.be/Q6G-J54vgKc?si=GxNdW5KASqXp0CZK)
 - [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Git Basics](https://git-scm.com/docs/gittutorial)
+
+## Imported links
+
+[Recorded Session Link](https://euieg.sharepoint.com/:f:/s/EUI-DEPIRound4/IgDdd5ciFxfkRIjgLvzEe7OsAVyiihGRs37OeheSBJQBH18?e=XWs4Lp)
+
+[Depi Site](https://lms.wavz.com.eg:8443/my/courses.php)

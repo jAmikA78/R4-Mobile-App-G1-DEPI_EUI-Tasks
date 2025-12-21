@@ -1,9 +1,20 @@
 # R4 Mobile App G1 DEPI_EUI Task
 
 Name : **Ahmed Ibrahim Abd ElGhany Emam**
+
+---
+
 ID : **21084076**
+
+---
+
 Email : **Ahmed.ibrahim.official.mail@gmail.com**
+
+---
+
 [Social Links](https://github.com/jAmikA78/)
+
+--
 
 ## File tree
 

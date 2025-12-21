@@ -15,7 +15,7 @@
    ```bash
    git clone https://github.com/jamika78/R4-Mobile-App-G1-DEPI_EUI-Tasks.git
    
-   R4-Mobile-App-G1-DEPI_EUI-Tasks
+   cd R4-Mobile-App-G1-DEPI_EUI-Tasks
 
    git checkout -b student-your-name
    ```

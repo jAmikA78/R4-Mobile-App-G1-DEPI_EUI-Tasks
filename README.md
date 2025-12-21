@@ -6,6 +6,8 @@
 - **Instructor**: Eng. Ahmed Ali
 - **What's This Repo For?**: This is your space to submit session tasks! The main branch is just for this README and course resources. All your awesome work goes on your own branches.
 
+## [Step-by-Step video](https://youtu.be/p64V4EJH7ww)
+
 ## Step-by-Step Guide for Students
 
 1. **Heads Up on the Main Branch**: Please don't push directly to the main branch – it's reserved for course info and instructions. Let's keep it clean!

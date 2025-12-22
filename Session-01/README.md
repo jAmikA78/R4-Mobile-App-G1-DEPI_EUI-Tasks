@@ -9,18 +9,23 @@ Here is implementation of tasks descriped above
 ### Hello World
 
 [Code](./HelloWorld.java)
+
 Result :
+
 ![result](./Results/HelloWorld.png)
 
 ### Even Or Odd
 
 [Code](./EvenOrOdd.java)
+
 Result :
+
 ![result](./Results/EvenOrOdd.png)
 
 ### IP Seperation
 
 [Code](./IP_Seperation.java)
+
 Result :
 ![result](./Results/IP_Seperation.png)
 

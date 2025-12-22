@@ -1,7 +1,7 @@
 import javax.swing.JFrame;
 import java.awt.Graphics;
 
-public class GUI3 extends JFrame {
+public class GUI3  extends JFrame implements Runnable {
     
     public GUI3(){
         initComponents();
@@ -9,12 +9,18 @@ public class GUI3 extends JFrame {
     }
     
     static int x = 0;
+    static String str= "Mahmoud";
     
     @Override
     public void paint(Graphics g){
         super.paint(g);
         
-        g.drawString("M", x, 150);
+        g.drawString(str, x+str.length(), this.getHeight()/2);
+    }
+    
+    @Override
+    public void run (){
+        this.repaint();
     }
     
     @SuppressWarnings("unchecked")
@@ -39,21 +45,22 @@ public class GUI3 extends JFrame {
 
     public static void main(String[] args){
         GUI3 frame = new GUI3();
+        Thread th = new Thread();
         
-        for(int i=0;i<401;i++){
+        while(true){
             try{
-                Thread.sleep(90);
-                frame.repaint();
-                x++;
-                if(i>=400){
-                    x=0;
-                    i=0;
-                    frame.repaint();
-                }
-            }catch(Exception ex){
-                ex.printStackTrace();
+               for(int i=0;i<1+frame.getWidth();i++){
+                   Thread.sleep(20);
+                   frame.repaint();
+                   x++;
+                   if(x+str.length()==frame.getWidth()){
+                       x=0;
+                       frame.repaint();
+                   }
+               } 
+            }catch(Exception e){
+                e.printStackTrace();
             }
         }
-
     }
 }

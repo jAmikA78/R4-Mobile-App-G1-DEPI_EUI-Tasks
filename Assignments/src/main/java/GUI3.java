@@ -1,6 +1,5 @@
 import javax.swing.JFrame;
 import java.awt.Graphics;
-
 public class GUI3  extends JFrame implements Runnable {
     
     public GUI3(){
@@ -9,13 +8,14 @@ public class GUI3  extends JFrame implements Runnable {
     }
     
     static int x = 0;
-    static String str= "Mahmoud";
+    static String str= "Mahmoud Ahmed Ali";
     
     @Override
     public void paint(Graphics g){
         super.paint(g);
         
-        g.drawString(str, x+str.length(), this.getHeight()/2);
+        g.drawString(str, x,getHeight()/2);
+        g.drawString(str, x+str.length()-getWidth(), getHeight()/2);
     }
     
     @Override
@@ -45,19 +45,14 @@ public class GUI3  extends JFrame implements Runnable {
 
     public static void main(String[] args){
         GUI3 frame = new GUI3();
-        Thread th = new Thread();
-        
         while(true){
             try{
-               for(int i=0;i<1+frame.getWidth();i++){
-                   Thread.sleep(20);
-                   frame.repaint();
-                   x++;
-                   if(x+str.length()==frame.getWidth()){
-                       x=0;
-                       frame.repaint();
+                Thread.sleep(50);;
+                x++;
+                if(x+str.length()>=frame.getWidth()){
+                       x=0;   
                    }
-               } 
+                frame.repaint();
             }catch(Exception e){
                 e.printStackTrace();
             }

@@ -8,8 +8,9 @@ import javax.swing.JFrame;
 public class TimeFrame extends JFrame implements Runnable {
 
   Thread tahaHussin;
-
-  @Override
+  Date date;
+  
+@Override
   public void paint(Graphics g) {
     super.paint(g);
 
@@ -18,7 +19,7 @@ public class TimeFrame extends JFrame implements Runnable {
 
     g.setFont(new Font("Arial", Font.BOLD, 24));
 
-    Date date = new Date();
+    date = new Date();
     g.setColor(Color.black);
 
     g.drawString(date.toString(), 50, 100);

@@ -13,16 +13,11 @@ public class TimeFrame extends JFrame implements Runnable {
     super.paint(g);
 
     g.setColor(Color.white);
-    g.drawString("لما بشيل السطرالكود بتبوظ", 0, 0);
-
     g.setFont(new Font("Arial", Font.BOLD, 24));
-
     Date date = new Date();
     g.setColor(Color.black);
-
     g.drawString(date.toString(), 50, 100);
   }
-  
   public TimeFrame() {
     this.setTitle(" what the time ?");
     this.setSize(450, 150);
@@ -32,7 +27,6 @@ public class TimeFrame extends JFrame implements Runnable {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setVisible(true);
   }
-
   @Override
   public void run() {
     while (true) {

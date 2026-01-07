@@ -12,14 +12,10 @@ class MyFrame extends JFrame {
     super.paint(g);
     Graphics2D g2 = (Graphics2D) g;
     g = g2;
-
     g2.setRenderingHint(
         RenderingHints.KEY_ANTIALIASING,
         RenderingHints.VALUE_ANTIALIAS_ON);
-
     g.setColor(Color.white);
-    g.drawString("لما بشيل السطر ده الدنيا بتبوظ", 0, 0);
-
     g.setFont(new Font("Arial", Font.BOLD, 60));
 
     g.setColor(Color.yellow);
@@ -42,9 +38,7 @@ class MyFrame extends JFrame {
     g2.drawOval(155, 150, 80, 120);
 
     g2.drawArc(50, 275, 300, 50, 180, 180);
-
   }
-
   public MyFrame() {
     this.setTitle("this a lamp");
     this.setSize(400, 500);

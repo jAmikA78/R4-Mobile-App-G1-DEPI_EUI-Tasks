@@ -7,24 +7,19 @@ public class TextFrame extends JFrame implements Runnable {
 
   Thread tamerHosny;
   int pos = 0,width=600;
-  String text = "Hello,World;";
-
+  String text = "Hello in EUI";
 
   @Override
   public void paint(Graphics g) {
     super.paint(g);
 
     g.setColor(Color.white);
-    g.drawString("لما بشيل السطر ده الدنيا بتبوظ", 0, 0);
-
     g.setFont(new Font("Arial", Font.BOLD, 24));
     g.setColor(Color.RED);
     for (int i = 0; i < text.length(); i++) {
       g.drawString(String.valueOf(text.charAt(i)), ((pos + (i * 30)) % width), 100);
     }
-
   }
-
   public TextFrame() {
     this.setTitle("Welcome Engineer Ahmed");
     this.setSize(width  , 150);
@@ -34,7 +29,6 @@ public class TextFrame extends JFrame implements Runnable {
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setVisible(true);
   }
-
   @Override
   public void run() {
     while (true) {

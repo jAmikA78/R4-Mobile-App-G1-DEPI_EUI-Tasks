@@ -33,7 +33,6 @@ public class TextFrame extends JFrame implements Runnable {
     tamerHosny.start();
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setVisible(true);
   }
 
   @Override

@@ -1,7 +1,6 @@
-
-public class TextGUI {
+public class ButtonGUI {
   public static void main(String[] args) {
-    TextFrame frame=new TextFrame();
+    ButtonFrame frame=new ButtonFrame();
     frame.setVisible(true);
   }
 }

@@ -33,7 +33,6 @@ public class TimeFrame extends JFrame implements Runnable {
     tahaHussin.start();
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setVisible(true);
   }
 
   @Override

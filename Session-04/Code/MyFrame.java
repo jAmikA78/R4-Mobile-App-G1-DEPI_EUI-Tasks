@@ -50,6 +50,5 @@ class MyFrame extends JFrame {
     this.setSize(400, 500);
     this.setLocationRelativeTo(null);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setVisible(true);
   }
 }

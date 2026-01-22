@@ -8,25 +8,25 @@ Here is implementation of tasks descriped above
 
 ### Hello World
 
-[Code](./HelloWorld.java)
+[Code](./HelloWorld/HelloWorld.java)
 
 Result :
 
-![result](./Results/HelloWorld.png)
+![result](./HelloWorld/result.png)
 
 ### Even Or Odd
 
-[Code](./EvenOrOdd.java)
+[Code](./EvenOrOdd/EvenOrOdd.java)
 
 Result :
 
-![result](./Results/EvenOrOdd.png)
+![result](./EvenOrOdd/result.png)
 
 ### IP Seperation
 
-[Code](./IP_Seperation.java)
+[Code](./IP_Seperation/IP_Seperation.java)
 
 Result :
-![result](./Results/IP_Seperation.png)
+![result](./IP_Seperation/result.png)
 
 [Author](https://github.com/jAmikA78/) - [MIT License](./../LICENSE)

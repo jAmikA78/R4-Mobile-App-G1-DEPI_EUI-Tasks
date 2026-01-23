@@ -1,429 +1,4 @@
-/*package com.mycompany.paintbrush;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-import java.io.*;
-import java.util.ArrayList;
-
-public class PaintBrush extends JFrame {
-
-    public PaintBrush() {
-        setTitle("Paint Brush");
-        setSize(1200, 550);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-
-        DrawPanel drawPanel = new DrawPanel();
-
-        // ======= Top controls =======
-        JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
-
-        JButton clearBtn = new JButton("Clear");
-        JButton undoBtn = new JButton("Undo");
-        JButton saveBtn = new JButton("Save");
-        JButton loadBtn = new JButton("Load");
-
-        top.add(new JLabel("Functions:"));
-        top.add(clearBtn);
-        top.add(undoBtn);
-        top.add(saveBtn);
-        top.add(loadBtn);
-
-        top.add(Box.createHorizontalStrut(15));
-        top.add(new JLabel("Paint Mode:"));
-
-        JRadioButton lineRB = new JRadioButton("Line", true);
-        JRadioButton rectRB = new JRadioButton("Rectangle");
-        JRadioButton ovalRB = new JRadioButton("Oval");
-        JRadioButton pencilRB = new JRadioButton("Pencil");
-        JRadioButton eraserRB = new JRadioButton("Eraser");
-
-        ButtonGroup modeGroup = new ButtonGroup();
-        modeGroup.add(lineRB);
-        modeGroup.add(rectRB);
-        modeGroup.add(ovalRB);
-        modeGroup.add(pencilRB);
-        modeGroup.add(eraserRB);
-
-        top.add(lineRB);
-        top.add(rectRB);
-        top.add(ovalRB);
-        top.add(pencilRB);
-        top.add(eraserRB);
-
-        JCheckBox fillCB = new JCheckBox("Fill"); // NEW
-        top.add(Box.createHorizontalStrut(10));
-        top.add(fillCB);
-
-        JCheckBox solidCB = new JCheckBox("Solid", true);
-        JCheckBox dottedCB = new JCheckBox("Dotted");
-
-        // make them exclusive
-        solidCB.addActionListener(e -> {
-            if (solidCB.isSelected()) dottedCB.setSelected(false);
-            else solidCB.setSelected(true);
-            drawPanel.setDotted(dottedCB.isSelected());
-        });
-        dottedCB.addActionListener(e -> {
-            if (dottedCB.isSelected()) solidCB.setSelected(false);
-            else dottedCB.setSelected(true);
-            drawPanel.setDotted(dottedCB.isSelected());
-        });
-
-        top.add(Box.createHorizontalStrut(15));
-        top.add(solidCB);
-        top.add(dottedCB);
-
-        top.add(Box.createHorizontalStrut(15));
-        top.add(new JLabel("Colors:"));
-
-        JButton blackBtn = new JButton("Black");
-        JButton redBtn = new JButton("Red");
-        JButton greenBtn = new JButton("Green");
-        JButton blueBtn = new JButton("Blue");
-
-        blackBtn.setForeground(Color.BLACK);
-        redBtn.setForeground(Color.RED);
-        greenBtn.setForeground(new Color(0, 150, 0));
-        blueBtn.setForeground(Color.BLUE);
-
-        top.add(blackBtn);
-        top.add(redBtn);
-        top.add(greenBtn);
-        top.add(blueBtn);
-
-        // ======= Actions =======
-        clearBtn.addActionListener(e -> drawPanel.clearAll());
-        undoBtn.addActionListener(e -> drawPanel.undo());
-
-        saveBtn.addActionListener(e -> drawPanel.saveToFile(this));
-        loadBtn.addActionListener(e -> drawPanel.loadFromFile(this));
-
-        lineRB.addActionListener(e -> drawPanel.setMode(DrawMode.LINE));
-        rectRB.addActionListener(e -> drawPanel.setMode(DrawMode.RECT));
-        ovalRB.addActionListener(e -> drawPanel.setMode(DrawMode.OVAL));
-        pencilRB.addActionListener(e -> drawPanel.setMode(DrawMode.PENCIL));
-        eraserRB.addActionListener(e -> drawPanel.setMode(DrawMode.ERASER));
-
-        fillCB.addActionListener(e -> drawPanel.setFill(fillCB.isSelected())); // NEW
-
-        blackBtn.addActionListener(e -> drawPanel.setCurrentColor(Color.BLACK));
-        redBtn.addActionListener(e -> drawPanel.setCurrentColor(Color.RED));
-        greenBtn.addActionListener(e -> drawPanel.setCurrentColor(new Color(0, 150, 0)));
-        blueBtn.addActionListener(e -> drawPanel.setCurrentColor(Color.BLUE));
-
-        // ======= Layout =======
-        add(top, BorderLayout.NORTH);
-        add(drawPanel, BorderLayout.CENTER);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new PaintBrush().setVisible(true));
-    }
-}
-
-// ======================= Drawing Panel =======================
-enum DrawMode { LINE, RECT, OVAL, PENCIL, ERASER }
-
-class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
-
-    private final ArrayList<MyShape> shapes = new ArrayList<>();
-    private MyShape preview = null;
-
-    private DrawMode mode = DrawMode.LINE;
-    private Color currentColor = Color.BLACK;
-    private boolean dotted = false;
-    private boolean fill = false; // NEW
-
-    // for drag
-    private int x1, y1, x2, y2;
-
-    public DrawPanel() {
-        setBackground(Color.WHITE);
-        addMouseListener(this);
-        addMouseMotionListener(this);
-    }
-
-    public void setMode(DrawMode mode) { this.mode = mode; }
-    public void setCurrentColor(Color c) { this.currentColor = c; }
-    public void setDotted(boolean dotted) { this.dotted = dotted; }
-    public void setFill(boolean fill) { this.fill = fill; } // NEW
-
-    public void clearAll() {
-        shapes.clear();
-        preview = null;
-        repaint();
-    }
-
-    public void undo() {
-        if (!shapes.isEmpty()) {
-            shapes.remove(shapes.size() - 1);
-            repaint();
-        }
-    }
-
-    // ========= Save / Load (NEW) =========
-    public void saveToFile(Component parent) {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Save Drawing");
-        int result = chooser.showSaveDialog(parent);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();
-            // optional extension
-            if (!file.getName().toLowerCase().endsWith(".paint")) {
-                file = new File(file.getAbsolutePath() + ".paint");
-            }
-
-            try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
-                out.writeObject(shapes);
-                JOptionPane.showMessageDialog(parent, "Saved successfully!");
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(parent, "Save error: " + ex.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    @SuppressWarnings("unchecked")
-    public void loadFromFile(Component parent) {
-        JFileChooser chooser = new JFileChooser();
-        chooser.setDialogTitle("Load Drawing");
-        int result = chooser.showOpenDialog(parent);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File file = chooser.getSelectedFile();
-
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-                Object obj = in.readObject();
-                if (obj instanceof ArrayList) {
-                    shapes.clear();
-                    shapes.addAll((ArrayList<MyShape>) obj);
-                    preview = null;
-                    repaint();
-                    JOptionPane.showMessageDialog(parent, "Loaded successfully!");
-                } else {
-                    JOptionPane.showMessageDialog(parent, "Invalid file format!",
-                            "Error", JOptionPane.ERROR_MESSAGE);
-                }
-            } catch (IOException | ClassNotFoundException ex) {
-                JOptionPane.showMessageDialog(parent, "Load error: " + ex.getMessage(),
-                        "Error", JOptionPane.ERROR_MESSAGE);
-            }
-        }
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
-
-        for (MyShape s : shapes) s.draw(g2);
-        if (preview != null) preview.draw(g2);
-    }
-
-    // ================= Mouse Events =================
-    @Override
-    public void mousePressed(MouseEvent e) {
-        x1 = e.getX();
-        y1 = e.getY();
-        x2 = x1;
-        y2 = y1;
-
-        if (mode == DrawMode.PENCIL) {
-            preview = new MyFreehand(currentColor, dotted);
-            ((MyFreehand) preview).addPoint(x1, y1);
-        } else if (mode == DrawMode.ERASER) {
-            preview = new MyFreehand(getBackground(), false);
-            ((MyFreehand) preview).setStrokeWidth(14);
-            ((MyFreehand) preview).addPoint(x1, y1);
-        } else {
-            preview = createShape(x1, y1, x2, y2);
-        }
-        repaint();
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        x2 = e.getX();
-        y2 = e.getY();
-
-        if (mode == DrawMode.PENCIL || mode == DrawMode.ERASER) {
-            ((MyFreehand) preview).addPoint(x2, y2);
-        } else {
-            preview = createShape(x1, y1, x2, y2);
-        }
-        repaint();
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        if (preview != null) {
-            shapes.add(preview);
-            preview = null;
-            repaint();
-        }
-    }
-
-    private MyShape createShape(int x1, int y1, int x2, int y2) {
-        return switch (mode) {
-            case LINE -> new MyLine(x1, y1, x2, y2, currentColor, dotted);
-            case RECT -> new MyRect(x1, y1, x2, y2, currentColor, dotted, fill); // NEW fill
-            case OVAL -> new MyOval(x1, y1, x2, y2, currentColor, dotted, fill); // NEW fill
-            default -> null;
-        };
-    }
-
-    // unused methods
-    @Override public void mouseMoved(MouseEvent e) {}
-    @Override public void mouseClicked(MouseEvent e) {}
-    @Override public void mouseEntered(MouseEvent e) {}
-    @Override public void mouseExited(MouseEvent e) {}
-}
-
-// ======================= OOP Shapes =======================
-abstract class MyShape implements Serializable {
-    private static final long serialVersionUID = 1L;
-
-    protected int rgb;
-    protected boolean dotted;
-
-    public MyShape(Color color, boolean dotted) {
-        this.rgb = color.getRGB();
-        this.dotted = dotted;
-    }
-
-    protected Color color() { return new Color(rgb, true); }
-
-    protected Stroke getStroke() {
-        if (dotted) {
-            return new BasicStroke(2, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-                    0, new float[]{6, 6}, 0);
-        }
-        return new BasicStroke(2);
-    }
-
-    public abstract void draw(Graphics2D g2);
-}
-
-class MyLine extends MyShape {
-    private static final long serialVersionUID = 1L;
-    private final int x1, y1, x2, y2;
-
-    public MyLine(int x1, int y1, int x2, int y2, Color color, boolean dotted) {
-        super(color, dotted);
-        this.x1 = x1; this.y1 = y1; this.x2 = x2; this.y2 = y2;
-    }
-
-    @Override
-    public void draw(Graphics2D g2) {
-        g2.setColor(color());
-        g2.setStroke(getStroke());
-        g2.drawLine(x1, y1, x2, y2);
-    }
-}
-
-class MyRect extends MyShape {
-    private static final long serialVersionUID = 1L;
-    private final int x, y, w, h;
-    private final boolean filled; // NEW
-
-    public MyRect(int x1, int y1, int x2, int y2, Color color, boolean dotted, boolean filled) {
-        super(color, dotted);
-        this.filled = filled;
-        x = Math.min(x1, x2);
-        y = Math.min(y1, y2);
-        w = Math.abs(x2 - x1);
-        h = Math.abs(y2 - y1);
-    }
-
-    @Override
-    public void draw(Graphics2D g2) {
-        g2.setColor(color());
-        if (filled) {
-            g2.fillRect(x, y, w, h);      // NEW fill
-        }
-        g2.setStroke(getStroke());
-        g2.drawRect(x, y, w, h);          // keep outline as well
-    }
-}
-
-class MyOval extends MyShape {
-    private static final long serialVersionUID = 1L;
-    private final int x, y, w, h;
-    private final boolean filled; // NEW
-
-    public MyOval(int x1, int y1, int x2, int y2, Color color, boolean dotted, boolean filled) {
-        super(color, dotted);
-        this.filled = filled;
-        x = Math.min(x1, x2);
-        y = Math.min(y1, y2);
-        w = Math.abs(x2 - x1);
-        h = Math.abs(y2 - y1);
-    }
-
-    @Override
-    public void draw(Graphics2D g2) {
-        g2.setColor(color());
-        if (filled) {
-            g2.fillOval(x, y, w, h);      // NEW fill
-        }
-        g2.setStroke(getStroke());
-        g2.drawOval(x, y, w, h);          // keep outline as well
-    }
-}
-
-class MyFreehand extends MyShape {
-    private static final long serialVersionUID = 1L;
-
-    private final ArrayList<SerializablePoint> points = new ArrayList<>();
-    private int strokeWidth = 3;
-
-    public MyFreehand(Color color, boolean dotted) {
-        super(color, dotted);
-    }
-
-    public void addPoint(int x, int y) {
-        points.add(new SerializablePoint(x, y));
-    }
-
-    public void setStrokeWidth(int w) {
-        strokeWidth = w;
-    }
-
-    @Override
-    protected Stroke getStroke() {
-        if (dotted) {
-            return new BasicStroke(strokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND,
-                    0, new float[]{6, 6}, 0);
-        }
-        return new BasicStroke(strokeWidth, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
-    }
-
-    @Override
-    public void draw(Graphics2D g2) {
-        g2.setColor(color());
-        g2.setStroke(getStroke());
-
-        for (int i = 1; i < points.size(); i++) {
-            SerializablePoint p1 = points.get(i - 1);
-            SerializablePoint p2 = points.get(i);
-            g2.drawLine(p1.x, p1.y, p2.x, p2.y);
-        }
-    }
-}
-
-// Point Serializable (عشان الحفظ والتحميل)
-class SerializablePoint implements Serializable {
-    private static final long serialVersionUID = 1L;
-    int x, y;
-
-    SerializablePoint(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-}
-*/
 package com.mycompany.paintbrush;
 
 import javax.swing.*;
@@ -432,9 +7,7 @@ import java.awt.event.*;
 import java.io.*;
 import java.util.ArrayList;
 
-/**
- * PaintBrush (OOP + ArrayList + Save/Load + Fill)
- */
+ 
 public class PaintBrush extends JFrame {
 
     private final JLabel statusLabel = new JLabel("Ready");
@@ -446,10 +19,9 @@ public class PaintBrush extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        // ===== Top panel (3 rows) =====
+         
         JPanel top = new JPanel(new GridLayout(3, 1));
-
-        // Row 1: Functions
+ 
         JPanel row1 = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
         JButton clearBtn = new JButton("Clear");
         JButton undoBtn  = new JButton("Undo");
@@ -462,7 +34,7 @@ public class PaintBrush extends JFrame {
         row1.add(saveBtn);
         row1.add(loadBtn);
 
-        // Row 2: Modes + Fill + Style
+         
         JPanel row2 = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
         row2.add(new JLabel("Paint Mode:"));
 
@@ -501,7 +73,7 @@ public class PaintBrush extends JFrame {
         row2.add(solidRB);
         row2.add(dottedRB);
 
-        // Row 3: Colors (as swatches)
+         
         JPanel row3 = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 6));
         row3.add(new JLabel("Colors:"));
 
@@ -510,7 +82,7 @@ public class PaintBrush extends JFrame {
         JButton greenBtn = makeColorButton(new Color(0, 150, 0));
         JButton blueBtn  = makeColorButton(Color.BLUE);
 
-        // small labels beside swatches (optional but clear)
+         
         row3.add(blackBtn); row3.add(new JLabel("Black"));
         row3.add(redBtn);   row3.add(new JLabel("Red"));
         row3.add(greenBtn); row3.add(new JLabel("Green"));
@@ -520,17 +92,17 @@ public class PaintBrush extends JFrame {
         top.add(row2);
         top.add(row3);
 
-        // ===== Status bar (bottom) =====
+         
         JPanel statusPanel = new JPanel(new BorderLayout());
         statusLabel.setBorder(BorderFactory.createEmptyBorder(6, 10, 6, 10));
         statusPanel.add(statusLabel, BorderLayout.CENTER);
 
-        // ===== Layout =====
+         
         add(top, BorderLayout.NORTH);
         add(drawPanel, BorderLayout.CENTER);
         add(statusPanel, BorderLayout.SOUTH);
 
-        // ===== Wiring (actions) =====
+         
         clearBtn.addActionListener(e -> { drawPanel.clearAll(); refreshStatus(null); });
         undoBtn.addActionListener(e -> { drawPanel.undo(); refreshStatus(null); });
 
@@ -553,7 +125,7 @@ public class PaintBrush extends JFrame {
         greenBtn.addActionListener(e -> { drawPanel.setCurrentColor(new Color(0, 150, 0), "Green"); refreshStatus(null); });
         blueBtn.addActionListener(e -> { drawPanel.setCurrentColor(Color.BLUE, "Blue"); refreshStatus(null); });
 
-        // status updates from panel (mouse move/drag)
+         
         drawPanel.setStatusCallback(this::refreshStatus);
 
         refreshStatus(null);
@@ -591,7 +163,7 @@ public class PaintBrush extends JFrame {
     }
 }
 
-// ======================= Panel =======================
+ 
 enum DrawMode { LINE, RECT, OVAL, PENCIL, ERASER }
 
 interface StatusCallback {
@@ -620,7 +192,7 @@ class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
         addMouseMotionListener(this);
     }
 
-    // ---- getters for status bar ----
+     
     public String getModeName() { return mode.name(); }
     public String getColorName() { return colorName; }
     public boolean isDotted() { return dotted; }
@@ -634,8 +206,7 @@ class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
     private void pushStatus(String extra) {
         if (statusCallback != null) statusCallback.update(extra);
     }
-
-    // ---- setters ----
+ 
     public void setMode(DrawMode mode) { this.mode = mode; }
     public void setCurrentColor(Color c, String name) { this.currentColor = c; this.colorName = name; }
     public void setDotted(boolean dotted) { this.dotted = dotted; }
@@ -654,7 +225,7 @@ class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
         }
     }
 
-    // ========= Save / Load =========
+     
     public void saveToFile(Component parent) {
         JFileChooser chooser = new JFileChooser();
         chooser.setDialogTitle("Save Drawing");
@@ -715,7 +286,7 @@ class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
         if (preview != null) preview.draw(g2);
     }
 
-    // ================= Mouse =================
+     
     @Override
     public void mousePressed(MouseEvent e) {
         x1 = e.getX();
@@ -777,13 +348,13 @@ class DrawPanel extends JPanel implements MouseListener, MouseMotionListener {
         };
     }
 
-    // unused
+     
     @Override public void mouseClicked(MouseEvent e) {}
     @Override public void mouseEntered(MouseEvent e) {}
     @Override public void mouseExited(MouseEvent e) {}
 }
 
-// ======================= OOP Shapes =======================
+ 
 abstract class MyShape implements Serializable {
     private static final long serialVersionUID = 1L;
 

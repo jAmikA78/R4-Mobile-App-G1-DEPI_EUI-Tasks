@@ -66,15 +66,15 @@
 
 Stuck? Check out GitHub's docs or reach out to [Ahmed](https://github.com/jAmikA78/).
 
+## Imported links
+
+[Recprded Session](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3aI3Ug5c&at=9)
+
+[Depi Site](https://lms.wavz.com.eg:8443/my/courses.php)
+
 ## Helpful Resources
 
 -  [Git& Github crash course](https://youtu.be/xf9qJys9BQo)
 - [Git& GitHub fullCourse  (طويل سيكا بس نينجا) ](https://youtu.be/Q6G-J54vgKc?si=GxNdW5KASqXp0CZK)
 - [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Git Basics](https://git-scm.com/docs/gittutorial)
-
-## Imported links
-
-[Recorded Session Link](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3az0Slol&at=9))
-
-[Depi Site](https://lms.wavz.com.eg:8443/my/courses.php)

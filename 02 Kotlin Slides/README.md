@@ -47,7 +47,7 @@
     
 - Try to use all concepts learned so far.
      
-![[Pasted image 20260128224732.png]]
+![[../Assets/01.png]]
 
 ---
 

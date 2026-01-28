@@ -47,7 +47,7 @@
     
 - Try to use all concepts learned so far.
      
-![[../Assets/01.png]]
+![task descriptio](../Assets/01.png)
 
 ---
 

@@ -31,7 +31,7 @@
     - DIV
         
 
-- Get Kotlin Badge 1 from:  
+- Get Kotlin Badge from:  
     [https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-1](https://developers.google.com/profile/badges/playlists/android/android-development-with-kotlin-1)
     
 
@@ -76,8 +76,35 @@ enum class Building {
 
 - Use topics related to Kotlin classes.
     
-- Get Kotlin Badge 2 from:  
+- Get Kotlin Badge from:  
     [https://developer.android.com/codelabs/android-development-kotlin-3.1](https://developer.android.com/codelabs/android-development-kotlin-3.1)
+    
+
+---
+**Session 4**
+
+- Get Kotlin Badge from:  
+    https://developer.android.com/courses/pathways/android-development-with-kotlin-2
+    
+
+---
+**Session 5**
+
+- Get Kotlin Badge from:  
+    https://developer.android.com/courses/pathways/android-development-with-kotlin-3
+    
+
+---
+**Session 6**
+
+- Create a calculate() using session topics 
+	- that accepts two integers and an operation as a function type. 
+	- Let the calculate method support: 
+		- ○ Addition 
+		- ○ Subtraction 
+		- ○ Multiplication 
+		- ○ Division 
+		- ○ Calculating the power
     
 
 ---

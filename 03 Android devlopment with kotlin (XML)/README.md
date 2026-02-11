@@ -22,6 +22,8 @@
 2.  ![task description](../Assets/3.3.2.png)
 3. ![task description](../Assets/3.3.3.png)
 	Hint:
-		app contain in count even app is restart 
+		app contain in count also if app is restart 
+		
 		not count restart as a move
+		
 ---

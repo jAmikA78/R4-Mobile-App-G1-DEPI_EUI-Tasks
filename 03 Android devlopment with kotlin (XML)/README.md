@@ -24,6 +24,6 @@
 	Hint:
 		app contain in count also if app is restart 
 		
-		not count restart as a move
+		don't count restart as a move
 		
 ---

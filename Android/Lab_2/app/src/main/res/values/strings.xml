@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab_2</string>
+    <string name="purple">Purple</string>
+    <string name="blue">Blue</string>
+    <string name="green">Green</string>
+    <string name="orange">Orange</string>
+    <string name="one">One</string>
+    <string name="two">Two</string>
+    <string name="three">Three</string>
+    <string name="four">Four</string>
+    <string name="yellow">Yellow</string>
+    <string name="red">Red</string>
+    <string name="box_one">Box One</string>
+    <string name="box_two">Box Two</string>
+    <string name="box_three">Box Three</string>
+    <string name="box_four">Box Four</string>
+    <string name="box_five">Box Five</string>
+    <string name="how">How to play</string>
+    <string name="inst">Tap The Screen and Buttons</string>
+</resources>

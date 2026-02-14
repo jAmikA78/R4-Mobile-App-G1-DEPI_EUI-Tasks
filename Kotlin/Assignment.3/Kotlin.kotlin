@@ -1,0 +1,29 @@
+fun main() {
+val person = Person(name = "Ahmed",address = "Cairo")
+//println(person)
+
+val (name ,address) = person
+    println("name = $name")
+    println("address = $address")
+    
+val address1 = Address(streetName ="Al Haram Street",city="Giza",building = Building1.APARTMENT
+)
+//println(address1)
+
+val (streetName ,city ,building)=address1
+    println("")
+    println("streetName = $streetName")
+    println("city = $city")
+    println("building = $building")
+    
+
+
+}
+data class Person(val name : String ,val address : String)
+    
+data class Address (val streetName : String ,val city: String ,val building : Building1)
+    
+enum class Building1{
+    VILLA, APARTMENT
+}
+    

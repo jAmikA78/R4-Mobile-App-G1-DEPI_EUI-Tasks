@@ -1,0 +1,16 @@
+package org.kotlin
+fun main()
+{
+    val numbers = IntArray(100)
+
+    for (i in numbers.indices) {
+        numbers[i] = Random.nextInt(0, 100)
+    }
+
+    for (num in numbers) {
+        
+        if (num <= 10) {
+            println(num)
+        }
+    }
+}

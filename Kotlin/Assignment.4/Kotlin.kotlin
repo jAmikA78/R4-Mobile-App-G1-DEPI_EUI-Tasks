@@ -1,0 +1,33 @@
+import kotlin.math.pow
+fun main() {
+
+var result = calculate(1, 2, Addition)
+println("The result of add is: $result")
+
+ result = calculate(5, 2, Subtraction)
+println("The result of sub is: $result")
+
+ result = calculate(8, 2, Multiplication)
+println("The result of mul is: $result")
+
+ result = calculate(4, 2, Division)
+println("The result of div is: $result")
+
+result = calculate(4, 2, power)
+println("The result of pow is: $result")
+}
+
+fun calculate(num1: Int, num2: Int, operation: (Int, Int) -> Int): Int {
+    return operation.invoke(num1, num2)
+}
+
+val Addition = {  x: Int, y: Int -> x + y}
+
+val Subtraction = {  x: Int, y: Int -> x - y }
+
+val Multiplication = {  x: Int, y: Int -> x * y}
+
+val Division = {  x: Int, y: Int -> x / y}
+
+val power = {  x: Int, y: Int -> x.toDouble().pow(y.toDouble()).toInt()}
+    

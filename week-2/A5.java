@@ -40,7 +40,7 @@ class Complex{
     }
 
     public void print(){
-        if (img >= 0){
+        if (img >= 0 && real >= 0){
             System.out.println("Complex Number: "+real+"+"+img+"i");
         }
         else {

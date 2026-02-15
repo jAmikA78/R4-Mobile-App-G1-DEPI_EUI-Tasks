@@ -2,70 +2,79 @@
 
 public class A6 {
     public static void main(String[] args) {
-        rectangle re = new rectangle(4,8);
-        triangle tri = new triangle(4,8);
-        circle cir = new circle(7);
-        picture pic= new picture(tri,re,cir);
+        Rectangle re = new Rectangle(4,8);
+        Triangle tri = new Triangle(4,8);
+        Circle cir = new Circle(7);
+        Picture pic= new Picture(tri,re,cir);
 
         System.out.println(pic.sumAreas());
     }
 }
 
-abstract class shape{
-    double dim;
+abstract class Shape{
+    protected double dim = 0;
+
+    public void set_dim(double d){
+    	if(d >= 0){
+		dim = d;
+	}
+    }
+    public double get_dim(){
+    	return dim;
+    }
 
     abstract double calculateArea();
 }
 
-class rectangle extends shape{
-    double wid;
+class Rectangle extends Shape{
+    double wid = 0;
 
-    rectangle(double wid,double dim){
+    Rectangle(double wid,double dim){
         this.wid=wid;
-        this.dim=dim;
+        set_dim(dim);
     }
 
-    rectangle(){
-        this.wid=0;
-        this.dim=0;
+    Rectangle(){
     }
 
+    @Override
     double calculateArea() {
-        return dim*wid;
+        return get_dim()*wid;
     }
 }
 
-class triangle extends shape{
-    double wid;
-    triangle(double wid,double dim){
-        this.dim=dim;
+class Triangle extends Shape{
+    double wid = 0;
+
+    Triangle(double wid,double dim){
+        set_dim(dim);
         this.wid=wid;
     }
-    triangle(){
-        this.dim=0;
-        this.wid=0;
+    Triangle(){
     }
+
+    @Override
     double calculateArea() {
-        return 0.5*dim*wid;
+        return 0.5*get_dim()*wid;
     }
 }
 
-class circle extends shape{
-    circle(int r){
-        dim=r;
+class Circle extends Shape{
+    Circle(int r){
+        set_dim(r);
     }
-    circle(){
-        dim=0;
+    Circle(){
     }
 
+    @Override
     double calculateArea() {
-        return 3.14*Math.pow(dim,2);
+        return 3.14*Math.pow(get_dim(),2);
     }
 }
 
-class picture{
+class Picture{
     double t,r,c;
-    picture(triangle tri,rectangle rect, circle circ){
+    Picture(Shape tri,Shape rect,Shape circ){
         t=tri.calculateArea();
         r=rect.calculateArea();
         c=circ.calculateArea();

@@ -2,15 +2,15 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 
-public class GUI2 extends javax.swing.JFrame {
+public class GUI1 extends javax.swing.JFrame {
     
-    public GUI2() {
+    public GUI1() {
         initComponents();
         setSize(400,500);
         setBackground(Color.WHITE);
     }
     
-        @Override
+    @Override
     public void paint(Graphics g){
         super.paint(g);
         
@@ -56,7 +56,7 @@ public class GUI2 extends javax.swing.JFrame {
     }// </editor-fold>                        
 
     public static void main(String args[]) {
-        GUI2 frame = new GUI2();
+        GUI1 frame = new GUI1();
         frame.setVisible(true);
         frame.setTitle("Lamp");
 

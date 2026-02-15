@@ -2,19 +2,21 @@ import java.awt.Graphics;
 import java.util.Date;
 
 
-public class GUI1 extends javax.swing.JFrame {
-    
+public class GUI2 extends javax.swing.JFrame {
 
-    public GUI1() {
+    Date d;
+
+    public GUI2() {
         initComponents();
     }
-    
+
     @Override
-    public void paint(Graphics g){
+    public void paint(Graphics g) {
         super.paint(g);
-        Date d = new Date();
-        g.drawString(d.toString(),100,100);
+        d = new Date();
+        g.drawString(d.toString(), 100, 100);
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -25,31 +27,35 @@ public class GUI1 extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
-        try{
-            GUI1 frame = new GUI1();
-            frame.setVisible(true);
-            frame.setTitle("Date");
-            while(true){
-                Thread.sleep(1000);
-                frame.repaint();
-        }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
+        GUI2 frame = new GUI2();
+        frame.setVisible(true);
+        frame.setTitle("Date");
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    // End of variables declaration//GEN-END:variables
+        Runnable run = new Runnable() {
+            @Override
+            public void run() {
+                while (true) {
+                    try {
+                        Thread.sleep(1000);
+                        frame.repaint();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        new Thread(run).start();
+    }
 }

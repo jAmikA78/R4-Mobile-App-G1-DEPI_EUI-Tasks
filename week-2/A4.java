@@ -18,7 +18,7 @@ class Student{
     }
 
     public Student(String name, String address, int age){
-        if(!(age <= 0)){
+        if(age > 0){
             set_stu(name,address,age);
         }
     }

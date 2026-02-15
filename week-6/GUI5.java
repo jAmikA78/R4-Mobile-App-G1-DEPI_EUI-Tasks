@@ -5,12 +5,12 @@ import java.awt.Graphics;
 import java.awt.event.MouseMotionListener;
 
 public class GUI5 extends javax.swing.JFrame{
-    int X1,Y1,x,y;
+    int x1,y1,x,y;
     public GUI5() {
         initComponents();
         this.addMouseListener(new MouseListener(){
                 @Override
-                public void mousePressed(MouseEvent e){X1=e.getX();Y1=e.getY();}
+                public void mousePressed(MouseEvent e){x1=e.getX();y1=e.getY();}
                 @Override
                 public void mouseReleased(MouseEvent e){repaint();}
                 @Override
@@ -53,7 +53,7 @@ public class GUI5 extends javax.swing.JFrame{
     @Override
     public void paint(Graphics g){
         super.paint(g);
-        g.drawLine(X1, Y1, x,y);
+        g.drawLine(x1, y1, x,y);
     }
     
     public static void main(String args[]) {

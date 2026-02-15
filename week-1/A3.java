@@ -1,5 +1,4 @@
-
-
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,14 +7,13 @@ public class A3 {
         System.out.print("Enter the IP Address: ");
         Scanner inp = new  Scanner(System.in);
         String Ip = inp.next();
-        ArrayList<Integer> ip = new ArrayList<>();
+        ArrayList<String> ip = new ArrayList<String>(Arrays.asList(Ip.split("\\.")));
         for  (int i = 0; i <= 3; i++) {
-            ip.add(Integer.parseInt(Ip.split("\\.")[i]));
             System.out.println(ip.get(i));
         }
 
         for (int i=0; i<ip.size();i++) {
-            if (ip.get(i) < 0 || ip.get(i) > 255) {
+            if (Integer.parseInt(ip.get(i)) < 0 || Integer.parseInt(ip.get(i)) > 255) {
                 System.out.println("This IP address is InValid: "+Ip);
                 System.exit(0);
             }

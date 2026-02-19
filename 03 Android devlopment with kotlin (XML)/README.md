@@ -13,7 +13,7 @@
 1. ![task description](../Assets/3.2.1.png)
 2. ![task description](../Assets/3.2.2.png)
  when app running all elements display as a colorful elements
-3. Get Android Accessibility codelab from [link](https://developer.android.com/codelabs/starting-android-accessibility)
+3. Get [Android Accessibility codelab](https://developer.android.com/codelabs/starting-android-accessibility)
 
 ---
 

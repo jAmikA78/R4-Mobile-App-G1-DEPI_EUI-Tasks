@@ -55,3 +55,9 @@
    1. ![task description](../Assets/3.6.3.png)
 
 ---
+
+## **Session 7**
+
+1. Create the follwing UI
+	1. ![ta sk description](../Assets/3.7.1.png)
+2. Create nav graph

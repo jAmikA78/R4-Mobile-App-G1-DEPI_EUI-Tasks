@@ -2,7 +2,7 @@
 
 ## Hey Team, Let's Get Started!
 
-- **Group ID**: R4 Mobile App G1 DEPI_EUI
+- **Group ID**: CAI4_SWD4_S2
 - **Instructor**: Eng. Ahmed Ali
 - **What's This Repo For?**: This is your space to submit session tasks! The main branch is just for this README and course resources. All your awesome work goes on your own branches.
 
@@ -68,12 +68,13 @@ Stuck? Check out GitHub's docs or reach out to [Ahmed](https://github.com/jAmikA
 
 ## Helpful Resources
 
-- [GitHub Course (طويل سيكا بس نينجا)](https://youtu.be/Q6G-J54vgKc?si=GxNdW5KASqXp0CZK)
+-  [Git& Github crash course](https://youtu.be/xf9qJys9BQo)
+- [Git& GitHub fullCourse  (طويل سيكا بس نينجا) ](https://youtu.be/Q6G-J54vgKc?si=GxNdW5KASqXp0CZK)
 - [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Git Basics](https://git-scm.com/docs/gittutorial)
 
 ## Imported links
 
-[Recorded Session Link](https://euieg.sharepoint.com/:f:/s/EUI-DEPIRound4/IgDdd5ciFxfkRIjgLvzEe7OsAVyiihGRs37OeheSBJQBH18?e=XWs4Lp)
+[Recorded Session Link](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3az0Slol&at=9))
 
 [Depi Site](https://lms.wavz.com.eg:8443/my/courses.php)

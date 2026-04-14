@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.example.euicompose.settings";
+option java_multiple_files = true;
+
+// Settings used by Proto DataStore
+message Settings {
+  bool dark_mode = 1;
+  bool notifications_enabled = 2;
+  string language = 3;
+  string username = 4;
+}

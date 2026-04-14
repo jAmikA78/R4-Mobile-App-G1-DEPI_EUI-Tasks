@@ -24,33 +24,33 @@
 
 3. **Work on Your Branch**: Add your session tasks and files to a folder named after the session (like `./session-01/`). Here's a handy example structure to get you started:
 
-     ```bash
-     session-01/
-     ├── task1/
-     │   ├── MainActivity.java
-     │   ├── app.apk
-     │   └── screenshots/
-     │       ├── screenshot1.png
-     │       └── screenshot2.png
-     └── README.md
-     session-02/
-     ├── task1/
-     │   ├── MainActivity.java
-     │   ├── app.apk
-     │   └── screenshots/
-     │       ├── screenshot1.png
-     │       └── screenshot2.png
-     ├── task2/
-     │   └──  MainActivity.java
-     └── README.md
-     ```
+   ```bash
+   session-01/
+   ├── task1/
+   │   ├── MainActivity.java
+   │   ├── app.apk
+   │   └── screenshots/
+   │       ├── screenshot1.png
+   │       └── screenshot2.png
+   └── README.md
+   session-02/
+   ├── task1/
+   │   ├── MainActivity.java
+   │   ├── app.apk
+   │   └── screenshots/
+   │       ├── screenshot1.png
+   │       └── screenshot2.png
+   ├── task2/
+   │   └──  MainActivity.java
+   └── README.md
+   ```
 
    Once you're ready, commit your changes:
 
-     ```bash
-     git add .
-     git commit -m "Added session 1 tasks"
-     ```
+   ```bash
+   git add .
+   git commit -m "Added session 1 tasks"
+   ```
 
 4. **Push Your Branch**: Share your work with the world!
 
@@ -66,15 +66,14 @@
 
 Stuck? Check out GitHub's docs or reach out to [Ahmed](https://github.com/jAmikA78/).
 
-## Imported links
+## Imported Links
 
-[Recprded Session](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3aI3Ug5c&at=9)
-
-[Depi Site](https://lms.wavz.com.eg:8443/my/courses.php)
+- [Recorded Session](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3aI3Ug5c&at=9)
+- [DEPI Site](https://lms.wavz.com.eg:8443/my/courses.php)
 
 ## Helpful Resources
 
--  [Git& Github crash course](https://youtu.be/xf9qJys9BQo)
-- [Git& GitHub fullCourse  (طويل سيكا بس نينجا) ](https://youtu.be/Q6G-J54vgKc?si=GxNdW5KASqXp0CZK)
+- [Git & Github Crash Course](https://youtu.be/xf9qJys9BQo)
+- [Git & GitHub Full Course](https://youtu.be/Q6G-J54vgKc)
 - [GitHub Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
 - [Git Basics](https://git-scm.com/docs/gittutorial)

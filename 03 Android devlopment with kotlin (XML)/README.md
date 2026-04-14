@@ -1,63 +1,84 @@
-# **Android development with Kotlin-XML Course Tasks**
+# Android Development with Kotlin - XML Course Tasks
 
 ---
 
-## **Session 1**
+## Session 1
 
-1. Create Hello World Android Project and check the activity life-cycle.
+1. Create Hello World Android Project and check the activity lifecycle.
 
 ---
 
-## **Session 2**
+## Session 2
 
 1. ![task description](../Assets/3.2.1.png)
 2. ![task description](../Assets/3.2.2.png)
- when app running all elements display as a colorful elements
-3. Get [Android Accessibility codelab](https://developer.android.com/codelabs/starting-android-accessibility)
+   - When app is running, all elements should display as colorful elements.
+3. Complete [Android Accessibility Codelab](https://developer.android.com/codelabs/starting-android-accessibility).
 
 ---
 
-## **Session 3**
+## Session 3
 
-1. when app running no element is colored and it colored only if you clicking on it
-   1. ![task description](../Assets/3.3.1.png)
+1. When app is running, no element is colored and it colored only if you click on it.
+   - ![task description](../Assets/3.3.1.png)
 2. ![task description](../Assets/3.3.2.png)
 3. ![task description](../Assets/3.3.3.png)
-   1. App contain counting also if app is restart.
-   2. Don't count restart as a move.
-  
+   - App should contain counting (even if app is restarted).
+   - Don't count restart as a move.
+
 ---
 
-## **Session 4**
+## Session 4
 
 1. ![task description](../Assets/3.4.1.png)
-2. Create an application that displays a recycler view with each row consisting of:
+2. Create an application that displays a RecyclerView with each row consisting of:
    - ImageView
-   - 2 TextView
+   - 2 TextViews
 
 ---
 
-## **Session 5**
+## Session 5
 
-1. Create an Activity with a static fragment and override all of the Fragment’s lifecycle methods>
-2. Create an Activity with a dynamic fragment and override all of the Fragment’s lifecycle methods.
+1. Create an Activity with a static fragment and override all of the Fragment's lifecycle methods.
+2. Create an Activity with a dynamic fragment and override all of the Fragment's lifecycle methods.
 3. Create an Activity with two fragments, static & dynamic.
-  
+
 ---
 
-## **Session 6**
+## Session 6
 
 1. Apply Shared Preference
-   1. ![ta sk description](../Assets/3.6.1.png)
+   - ![task description](../Assets/3.6.1.png)
 2. Add card to the RecyclerView
-   1. ![task description](../Assets/3.6.2.png)
-3. Apply Data Store
-   1. ![task description](../Assets/3.6.3.png)
+   - ![task description](../Assets/3.6.2.png)
+3. Apply DataStore
+   - ![task description](../Assets/3.6.3.png)
 
 ---
 
-## **Session 7**
+## Session 7
 
-1. Create the follwing UI
-	1. ![ta sk description](../Assets/3.7.1.png)
-2. Create nav graph
+1. Create the following UI
+   - ![task description](../Assets/3.7.1.png)
+2. Create NavGraph
+
+---
+
+## Session 8
+
+Create two screens with Navigation Component:
+
+1. Create a screen with email and password TextFields and a login button.
+2. Create a screen with a list of data using RecyclerView (the data is a list of students, each student has: name, age, gpa, image).
+
+---
+
+## Session 9
+
+Apply Repository pattern and full cycle with MVVM for the previous task (Session 8).
+
+---
+
+## Session 10
+
+Apply Room database for the 1st project in Session 6 assignment.

@@ -109,7 +109,7 @@ This course covers essential freelancing skills including creating your unique v
 
 - Outline key elements of a winning freelancer profile
 - Include tips for profile photo, headline, description, and portfolio
-- Provide a comparison between the platforms
+- Add at least on service to your account on Khamsat
 
 **Upload Link:** [Assignment 5 - Freelancer Profile](https://drive.google.com/drive/folders/1RgNWimFkmu9geegRg-C4c3X7LR0M36V6)
 

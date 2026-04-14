@@ -64,8 +64,6 @@
    - Keep your commits clear and focused (small changes are best).
    - **Don't merge your branch into main**.
 
-Stuck? Check out GitHub's docs or reach out to [Ahmed](https://github.com/jAmikA78/).
-
 ## Imported Links
 
 - [Recorded Session](https://euieg.sharepoint.com/:f:/s/EUI-DEPI-Round4/IgDdd5ciFxfkRIjgLvzEe7OsAVXZNYaK5nksrgdOp0wkV2I?e=5%3aI3Ug5c&at=9)

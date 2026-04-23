@@ -1,0 +1,21 @@
+package org.kotlin
+fun main() {
+    val a = 10
+    val b = 20
+    
+    val add = a + b
+    print("add is :")
+    println(add)
+     
+    val sub = a - b
+    print("sub is :")
+    println(sub)
+    
+    val mul = a * b
+    print("mul is :")
+    println(mul)
+    
+    val div = a / b
+    print("div is :")
+    println(div)
+}

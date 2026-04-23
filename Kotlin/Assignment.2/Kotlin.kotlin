@@ -1,0 +1,81 @@
+package org.kotlin
+fimport kotlin.random.Random
+
+fun main() {
+
+    val c = Circle(5)
+    val r = Rectangle(4, 6)
+    val t = Triangle(3, 8)
+
+    val picture = Picture()
+    val totalArea = picture.sumAreas(c, r, t)
+
+    println("Total Area = $totalArea")
+}
+
+}
+class shape(){
+    var dim = 0
+    
+    const()
+        fun set Dim(d : Int) {
+           dim = d 
+        }
+        fun get Dim() {
+        return dim
+        }
+        abstract fun calcArea()
+}
+
+class Circle : shipe() {
+    const() : super()
+    const(R : Int) : super()
+    dim = R
+    override fun calcArea()
+     return Math.PI * dim * dim
+}
+
+class Rectangle : shipe() {
+   var height = 0
+    
+    const() : super()
+    const(w : Int , h : Int) :super()
+        dim = w
+        hieght = h
+    
+        fun set Hieght(h : Int) {
+        heiht = h 
+        }
+        fun get Hieght() {
+        return hieght
+    }
+        override fun calcArea()
+        return dim * height
+}
+
+class Triangle:shape() {
+     var height = 0
+      
+     const() : super()
+     const(B : Int , H : Int) :super()
+     dim = B 
+     height = h
+    
+    fun set Hieght(h :Int) {
+        heiht = h 
+        }
+        fun get Hieght() {
+        return hieght
+    }
+     override fun calcArea()
+     return B * h * 0.5
+}
+
+class Picture {
+
+    fun sumAreas(s1: Shape, s2: Shape, s3: Shape) {
+        return s1.calcArea() + s2.calcArea() + s3.calcArea()
+    }
+}
+
+    

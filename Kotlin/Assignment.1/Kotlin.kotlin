@@ -1,0 +1,20 @@
+package org.kotlin
+fun main() {
+    println("Enter your name:")
+
+    val input = readLine()
+
+    val name = if (input.isNullOrEmpty()) {
+        "Guest"
+    } else {
+        input
+    }
+
+    val greeting = if (name == "Guest") {
+        "Hello, Guest!"
+    } else {
+        "Hello, $name!"
+    }
+
+    println(greeting)
+}
